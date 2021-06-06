@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add product</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" th:href="@{../static/addproduct.css}" />
+</head>
+<body>
+	<div class="header"></div>
+	<div class="from-wrapper">
+		<h3>Add hozzá a terméket!</h3>
+		<form name="addForm" th:action="@{/product/new}" th:object="${product}" method="POST">
+			<table>
+				<tr>
+					<td>ID:</td>
+					<td><input type="text" name="id" /></td>
+				</tr>
+				<tr>
+					<td><label for="productName">Név:</label></td>
+					<td><input type="text" id="productName" th:field="*{productName}"/></td>
+				</tr>
+				<tr>
+					<td><label for="type">Típus:</label></td>
+					<td><input type="text" id="type" th:field="*{type}"/></td>
+				</tr>
+				<tr>
+					<td><label for="price">Ár:</label></td>
+					<td><input type="text" id="price" th:field="*{price}"/></td>
+				</tr>
+				<tr>
+					<td colspan="4" class="button-wrapper">
+					<input class="addproductbutton" type="submit" name="add" value="Hozzáadás" /></td>
+				</tr>
+			</table>
+		</form>
+		<ul>
+			<li><a th:href="@{/product/}">Termékek</a></li>
+			<li>
+<!-- 				<a th:href="@{/product/new}">Hozzáadás</a> -->
+				<form th:href="@{/product/new}" method="POST">
+				</form>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

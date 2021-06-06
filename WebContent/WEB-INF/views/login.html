@@ -1,0 +1,34 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="./static/view.css" />
+</head>
+<body>
+	<div class="header">
+	</div>
+	<div class="from-wrapper">
+		<h3>Add meg a felhasználóneved és jelszavad!</h3>
+		<h5 th:if="${wrong}">Rossz felhasználónév vagy jelszó!</h5>
+		<form name="loginForm" th:action="@{/login}" method="POST">
+			<table>
+				<tr>
+					<td>Felhasználónév:</td>
+					<td><input type="text" name="username" /></td>
+				</tr>
+				<tr>
+					<td>Jelszó:</td>
+					<td><input type="password" name="password" /></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="button-wrapper">
+					<input class="login-button" type="submit" value="Bejelentkezés" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

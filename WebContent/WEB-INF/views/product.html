@@ -1,0 +1,41 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Product</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" th:href="@{../static/product.css}" />
+</head>
+<body>
+	<div class="productTable"></div>
+	<div class="from-wrapper">
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Név</th>
+				<th>Típus</th>
+				<th>Ár</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${products.empty}">
+				<td colspan="2">A táblázat nem tartalmaz termékeket</td>
+			</tr>
+			<tr th:each="product : ${products}">
+				<td><span class="thText" th:text="${product.id}"> ID </span></td>
+                <td><span class="thText" th:text="${product.productName}"> Név </span></td>
+                <td><span class="thText" th:text="${product.type}"> Típus </span></td>
+                <td><span class="thText" th:text="${product.price}"> Ár </span></td>
+			</tr>
+		</tbody>
+	</table>
+	<ul>
+		<li class="add"><a th:href="@{/product/new}">Termék hozzáadása</a></li>
+		<li><a th:href="@{/product/logout}">
+				<input class="logoutbutton" type="submit" value="Kijelentkezés" />
+			</a></li>
+	</ul>
+	</div>
+</body>
+</html>
